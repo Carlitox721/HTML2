@@ -6,7 +6,7 @@ dentro del mismo encontraran cinco carpetas:
     -   Es una página corporativa del estilo Onepage
     temática portfolio con HTML-CSS-JQUERY.
     Está el 80% resuelto faltan algunas imágenes que se encuentran en el original.
-    
+    falta lo de Flor
     la url original de este template es: "http://www.11-76.com/themes/cardex/"
     
 ## Exena
