@@ -1,0 +1,49 @@
+<h2>Ejercicio 1</h2>
+<p>A partir del código HTML y CSS que se muestra, añadir los selectores CSS que faltan para aplicar los estilos deseados. Cada regla CSS incluye un comentario en el que se explica los elementos a los que debe aplicarse:</p>
+<div class="code html"><pre class="html"><span class="hljs-meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/1999/xhtml"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"Content-Type"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"text/html; charset=iso-8859-1"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Ejercicio de selectores<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css">
+    <span class="hljs-comment">/* Todos los elementos de la pagina */</span>
+    { <span class="hljs-attribute">font</span>: <span class="hljs-number">1em</span>/<span class="hljs-number">1.3</span> Arial, Helvetica, sans-serif; }
+    
+    <span class="hljs-comment">/* Todos los parrafos de la pagina */</span>
+    { <span class="hljs-attribute">color</span>: <span class="hljs-number">#555</span>; }
+    
+    <span class="hljs-comment">/* Todos los párrafos contenidos en #primero */</span>
+    { <span class="hljs-attribute">color</span>: <span class="hljs-number">#336699</span>; }
+    
+    <span class="hljs-comment">/* Todos los enlaces la pagina */</span>
+    { <span class="hljs-attribute">color</span>: <span class="hljs-number">#CC3300</span>; }
+    
+    <span class="hljs-comment">/* Los elementos "em" contenidos en #primero */</span>
+    { <span class="hljs-attribute">background</span>: <span class="hljs-number">#FFFFCC</span>; <span class="hljs-attribute">padding</span>: .<span class="hljs-number">1em</span>; }
+    
+    <span class="hljs-comment">/* Todos los elementos "em" de clase "especial" en toda la pagina */</span>
+    { <span class="hljs-attribute">background</span>: <span class="hljs-number">#FFCC99</span>; <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#FF9900</span>; <span class="hljs-attribute">padding</span>: .<span class="hljs-number">1em</span>; }
+    
+    <span class="hljs-comment">/* Elementos "span" contenidos en .normal */</span>
+    { <span class="hljs-attribute">font-weight</span>: bold; }
+    
+    </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"primero"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet, <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>consectetuer adipiscing elit<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>. Praesent blandit nibh at felis. Sed nec diam in dolor vestibulum aliquet. Duis ullamcorper, nisi non facilisis molestie, <span class="hljs-tag">&lt;<span class="hljs-name">em</span>&gt;</span>lorem sem aliquam nulla<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>, id lacinia velit mi vestibulum enim.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"normal"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Phasellus eu velit sed lorem sodales egestas. Ut feugiat. <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Donec porttitor<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>, magna eu varius luctus,<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> metus massa tristique massa, in imperdiet est velit vel magna. Phasellus erat. Duis risus. <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>Maecenas dictum<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>, nibh vitae pellentesque auctor, tellus velit consectetuer tellus, tempor pretium felis tellus at metus.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Cum sociis natoque <span class="hljs-tag">&lt;<span class="hljs-name">em</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"especial"</span>&gt;</span>penatibus et magnis<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span> dis parturient montes, nascetur ridiculus mus. Proin aliquam convallis ante. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc aliquet. Sed eu metus. Duis justo.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Donec facilisis blandit velit. Vestibulum nisi. Proin volutpat, <span class="hljs-tag">&lt;<span class="hljs-name">em</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"especial"</span>&gt;</span>enim id iaculis congue<span class="hljs-tag">&lt;/<span class="hljs-name">em</span>&gt;</span>, orci justo ultrices tortor, <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span>quis lacinia eros libero in eros<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>. Sed malesuada dui vel quam. Integer at eros.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    
+    <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></pre></div>

@@ -1,0 +1,24 @@
+* {
+    margin: 20px;
+    padding: 0;
+  }
+  h1, h2, h3 {
+    color: #8A8E27;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  p { color: red; }
+
+  /*el siguiente es un selector de clase*/
+  .destacado { 
+      color: rgb(33, 214, 57);
+  }
+  
+   p  em#destacado1 { color: rgb(109, 21, 224); } 
+
+
+
+  img.desplazada {
+    position: relative;
+    top: 8em;
+  }

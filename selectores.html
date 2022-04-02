@@ -1,0 +1,156 @@
+<h1>Selectores</h1>
+<p>Para crear diseños web profesionales, es imprescindible conocer y dominar los selectores de CSS.
+   Una regla de CSS está formada por una parte llamada "selector" y otra parte llamada "declaración".
+</p>
+<p>La declaración indica <em>"qué hay que hacer"</em> y el selector indica <em>"a quién hay que hacérselo"</em>. Por lo tanto, los selectores son imprescindibles para aplicar de forma correcta los estilos CSS en una página.
+</p>
+<p>A un mismo elemento HTML se le pueden aplicar varias reglas CSS y cada regla CSS puede aplicarse a un número ilimitado de elementos. En otras palabras, una misma regla puede aplicarse sobre varios selectores y un mismo selector se puede utilizar en varias reglas.</p>
+<h1>Selectores Básicos</h1>
+<h3>Selector universal</h3>
+<p>Se utiliza para seleccionar todos los elementos de la página. El siguiente ejemplo elimina el margen y el relleno de todos los elementos HTML (por ahora no es importante fijarse en la parte de la declaración de la regla CSS):</p>
+<div class="code css"><pre class="css">* {
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span>;
+  }</pre></div>
+  <p>El selector universal se indica mediante un asterisco (<code>*</code>). A pesar de su sencillez, no se utiliza habitualmente, ya que es difícil que un mismo estilo se pueda aplicar a todos los elementos de una página.</p>
+  <h3>Selector de tipo o etiqueta</h3>
+  <p>Selecciona todos los elementos de la página cuya etiqueta HTML coincide con el valor del selector. El siguiente ejemplo selecciona todos los párrafos de la página:</p>
+  <div class="code css"><pre class="css"><span class="hljs-selector-tag">p</span> {
+    ...
+  }</pre></div>
+  <p>Para utilizar este selector, solamente es necesario indicar el nombre de una etiqueta HTML (sin los caracteres <code>&lt;</code> y <code>&gt;</code>) correspondiente a los elementos que se quieren seleccionar.</p>
+  <p>El siguiente ejemplo aplica diferentes estilos a los titulares y a los párrafos de una página HTML:</p>
+  <div class="code css"><pre class="css"><span class="hljs-selector-tag">h1</span> {
+    <span class="hljs-attribute">color</span>: red;
+  }
+  
+  <span class="hljs-selector-tag">h2</span> {
+    <span class="hljs-attribute">color</span>: blue;
+  }
+  
+  <span class="hljs-selector-tag">p</span> {
+    <span class="hljs-attribute">color</span>: black;
+  }</pre></div>
+  <p>Si se quiere aplicar los mismos estilos a dos etiquetas diferentes, se pueden encadenar los selectores. En el siguiente ejemplo, los títulos de sección <code>h1</code>, <code>h2</code> y <code>h3</code> comparten los mismos estilos:</p>
+  <div class="code css"><pre class="css"><span class="hljs-selector-tag">h1</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#8A8E27</span>;
+    <span class="hljs-attribute">font-weight</span>: normal;
+    <span class="hljs-attribute">font-family</span>: Arial, Helvetica, sans-serif;
+  }
+  <span class="hljs-selector-tag">h2</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#8A8E27</span>;
+    <span class="hljs-attribute">font-weight</span>: normal;
+    <span class="hljs-attribute">font-family</span>: Arial, Helvetica, sans-serif;
+  }
+  <span class="hljs-selector-tag">h3</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#8A8E27</span>;
+    <span class="hljs-attribute">font-weight</span>: normal;
+    <span class="hljs-attribute">font-family</span>: Arial, Helvetica, sans-serif;
+  }</pre></div>
+
+  <p>En este caso, CSS permite agrupar todas las reglas individuales en una sola regla con un selector múltiple. Para ello, se incluyen todos los selectores separados por una coma (<code>,</code>) y el resultado es que la siguiente regla CSS es equivalente a las tres reglas anteriores:</p>
+  <div class="code css"><pre class="css"><span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">h2</span>, <span class="hljs-selector-tag">h3</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#8A8E27</span>;
+    <span class="hljs-attribute">font-weight</span>: normal;
+    <span class="hljs-attribute">font-family</span>: Arial, Helvetica, sans-serif;
+  }</pre></div>
+  <p>En las hojas de estilo complejas, es habitual agrupar las propiedades comunes de varios elementos en una única regla CSS y posteriormente definir las propiedades específicas de esos mismos elementos. El siguiente ejemplo establece en primer lugar las propiedades comunes de los títulos de sección (color y tipo de letra) y a continuación, establece el tamaño de letra de cada uno de ellos:</p>
+  <div class="code css"><pre class="css"><span class="hljs-selector-tag">h1</span>, <span class="hljs-selector-tag">h2</span>, <span class="hljs-selector-tag">h3</span> {
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#8A8E27</span>;
+    <span class="hljs-attribute">font-weight</span>: normal;
+    <span class="hljs-attribute">font-family</span>: Arial, Helvetica, sans-serif;
+  }
+  
+  <span class="hljs-selector-tag">h1</span> { <span class="hljs-attribute">font-size</span>: <span class="hljs-number">2em</span>; }
+  <span class="hljs-selector-tag">h2</span> { <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.5em</span>; }
+  <span class="hljs-selector-tag">h3</span> { <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1.2em</span>; }</pre></div>
+
+  <h3>Selector descendente</h3>
+
+  <p>Selecciona los elementos que se encuentran dentro de otros elementos. Un elemento es descendiente de otro cuando se encuentra entre las etiquetas de apertura y de cierre del otro elemento.</p>
+  <p>El selector del siguiente ejemplo selecciona todos los elementos <code>&lt;span&gt;</code> de la página que se encuentren dentro de un elemento <code>&lt;p&gt;</code>:</p>
+  <div class="code css"><pre class="css"><span class="hljs-selector-tag">p</span> <span class="hljs-selector-tag">span</span> { <span class="hljs-attribute">color</span>: red; }</pre></div>
+  <p>Si el código HTML de la página es el siguiente:</p>
+  <div class="code html"><pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>texto1<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>...<span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>texto2<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+    ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span></pre></div>
+  <p>El selector <code>p span</code> selecciona tanto <code>texto1</code> como <code>texto2</code>. El motivo es que en el selector descendente, un elemento no tiene que ser descendiente directo del otro. La única condición es que un elemento debe estar dentro de otro elemento, sin importar el nivel de profundidad en el que se encuentre.</p>
+  <p>Al resto de elementos <code>&lt;span&gt;</code> de la página que no están dentro de un elemento <code>&lt;p&gt;</code>, no se les aplica la regla CSS anterior.</p>
+  <p>Los selectores descendentes permiten aumentar la precisión del selector de tipo o etiqueta. Así, utilizando el selector descendente es posible aplicar diferentes estilos a los elementos del mismo tipo. El siguiente ejemplo amplía el anterior y muestra de color azul todo el texto de los <code>&lt;span&gt;</code> contenidos dentro de un <code>&lt;h1&gt;</code>:</p>
+  <div class="code css"><pre class="css"><span class="hljs-selector-tag">p</span> <span class="hljs-selector-tag">span</span>  { <span class="hljs-attribute">color</span>: red;  }
+    <span class="hljs-selector-tag">h1</span> <span class="hljs-selector-tag">span</span> { <span class="hljs-attribute">color</span>: blue; }</pre></div>
+
+    <h3>Selector de clase</h3>
+    <p>Si se considera el siguiente código HTML de ejemplo:</p>
+    <div class="code html"><pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Lorem ipsum dolor sit amet...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Nunc sed lacus et est adipiscing accumsan...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Class aptent taciti sociosqu ad litora...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></pre>
+    </div>
+    <p>Una de las soluciones más sencillas para aplicar estilos a un solo elemento de la página consiste en utilizar el atributo <code>class</code> de HTML sobre ese elemento para indicar directamente la regla CSS que se le debe aplicar:</p>
+    <div class="code html"><pre class="html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"destacado"</span>&gt;</span>Lorem ipsum dolor sit amet...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Nunc sed lacus et est adipiscing accumsan...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Class aptent taciti sociosqu ad litora...<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></pre></div>
+      <p>A continuación, se crea en el archivo CSS una nueva regla llamada <code>destacado</code> con todos los estilos que se van a aplicar al elemento. Para que el navegador no confunda este selector con los otros tipos de selectores, se prefija el valor del atributo <code>class</code> con un punto (<code>.</code>) tal y como muestra el siguiente ejemplo:</p>
+      <div class="code css"><pre class="css"><span class="hljs-selector-class">.destacado</span> { <span class="hljs-attribute">color</span>: red; }</pre></div>
+<h3>Selectores de ID</h3>
+      <p>El selector de ID permite seleccionar un elemento de la página a través del valor de su atributo <code>id</code>. Este tipo de selectores sólo seleccionan un elemento de la página porque el valor del atributo <code>id</code> no se puede repetir en dos elementos diferentes de una misma página.</p>
+      <p>El selector de ID permite seleccionar un elemento de la página a través del valor de su atributo <code>id</code>. Este tipo de selectores sólo seleccionan un elemento de la página porque el valor del atributo <code>id</code> no se puede repetir en dos elementos diferentes de una misma página.</p>
+      <p>La sintaxis de los selectores de ID es muy parecida a la de los selectores de clase, salvo que se utiliza el símbolo de la almohadilla (<code>#</code>) en vez del punto (<code>.</code>) como prefijo del nombre de la regla CSS:</p>
+      <div class="code css"><pre class="css"><span class="hljs-selector-id">#destacado</span> { <span class="hljs-attribute">color</span>: red; }
+
+        &lt;<span class="hljs-selector-tag">p</span>&gt;<span class="hljs-selector-tag">Primer</span> <span class="hljs-selector-tag">p</span>á<span class="hljs-selector-tag">rrafo</span>&lt;/<span class="hljs-selector-tag">p</span>&gt;
+        &lt;<span class="hljs-selector-tag">p</span> <span class="hljs-selector-tag">id</span>="<span class="hljs-selector-tag">destacado</span>"&gt;<span class="hljs-selector-tag">Segundo</span> <span class="hljs-selector-tag">p</span>á<span class="hljs-selector-tag">rrafo</span>&lt;/<span class="hljs-selector-tag">p</span>&gt;
+        &lt;<span class="hljs-selector-tag">p</span>&gt;<span class="hljs-selector-tag">Tercer</span> <span class="hljs-selector-tag">p</span>á<span class="hljs-selector-tag">rrafo</span>&lt;/<span class="hljs-selector-tag">p</span>&gt;</pre></div>
+<p>En el ejemplo anterior, el selector <code>#destacado</code> solamente selecciona el segundo párrafo (cuyo atributo <code>id</code> es igual a <code>destacado</code>).</p>
+<p>La principal diferencia entre este tipo de selector y el selector de clase tiene que ver con HTML y no con CSS. Como se sabe, en una misma página, el valor del atributo <code>id</code> debe ser único, de forma que dos elementos diferentes no pueden tener el mismo valor de <code>id</code>. Sin embargo, el atributo <code>class</code> no es obligatorio que sea único, de forma que muchos elementos HTML diferentes pueden compartir el mismo valor para su atributo <code>class</code>.</p>
+<h1 >Herencia</h1>
+<p>Una de las características principales de CSS es la herencia de los estilos definidos para los elementos. Cuando se establece el valor de una propiedad CSS en un elemento, sus elementos descendientes heredan de forma automática el valor de esa propiedad. Si se considera el siguiente ejemplo:</p>
+<div class="code html"><pre class="html"><span class="hljs-meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/1999/xhtml"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"Content-Type"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"text/html; charset=iso-8859-1"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Ejemplo de herencia de estilos<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css">
+    <span class="hljs-selector-tag">body</span> { <span class="hljs-attribute">color</span>: blue; }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Titular de la página<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Un párrafo de texto no muy largo.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></pre></div>
+  <p>En el ejemplo anterior, el selector <code>body</code> solamente establece el color de la letra para el elemento <code>&lt;body&gt;</code>. No obstante, la propiedad <code>color</code> es una de las que se heredan de forma automática, por lo que todos los elementos descendientes de <code>&lt;body&gt;</code> muestran ese mismo color de letra. Por tanto, establecer el color de la letra en el elemento <code>&lt;body&gt;</code> de la página implica cambiar el color de letra de todos los elementos de la página.</p>
+  <p>Aunque la herencia de estilos se aplica automáticamente, se puede anular su efecto estableciendo de forma explícita otro valor para la propiedad que se hereda, como se muestra en el siguiente ejemplo:</p>
+  <div class="code html"><pre class="html"><span class="hljs-meta">&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/1999/xhtml"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">"Content-Type"</span> <span class="hljs-attr">content</span>=<span class="hljs-string">"text/html; charset=iso-8859-1"</span> /&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Ejemplo de herencia de estilos<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/css"</span>&gt;</span><span class="css">
+    <span class="hljs-selector-tag">body</span> { <span class="hljs-attribute">font-family</span>: Arial; <span class="hljs-attribute">color</span>: black; }
+    <span class="hljs-selector-tag">h1</span> { <span class="hljs-attribute">font-family</span>: Verdana; }
+    <span class="hljs-selector-tag">p</span> { <span class="hljs-attribute">color</span>: red; }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Titular de la página<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Un párrafo de texto no muy largo.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></pre></div>
+  <p>En el ejemplo anterior, se establece en primer lugar el color y tipo de letra del elemento <code>&lt;body&gt;</code>, por lo que todos los elementos de la página se mostrarían con ese mismo color y tipo de letra. No obstante, las otras reglas CSS modifican alguno de los estilos heredados.</p>
+  <p>De esta forma, los elementos <code>&lt;h1&gt;</code> de la página se muestran con el tipo de letra <code>Verdana</code> establecido por el selector <code>h1</code> y se muestran de color negro que es el valor heredado del elemento <code>&lt;body&gt;</code>. Igualmente, los elementos <code>&lt;p&gt;</code> de la página se muestran del color rojo establecido por el selector <code>p</code> y con un tipo de letra <code>Arial</code> heredado del elemento <code>&lt;body&gt;</code>.</p>
+  <p>La mayoría de propiedades CSS aplican la herencia de estilos de forma automática. Además, para aquellas propiedades que no se heredan automáticamente, CSS incluye un mecanismo para forzar a que se hereden sus valores, tal y como se verá más adelante.</p>
+  <p>Por último, aunque la herencia automática de estilos puede parecer complicada, simplifica en gran medida la creación de hojas de estilos complejas. Como se ha visto en los ejemplos anteriores, si se quiere establecer por ejemplo la tipografía base de la página, simplemente se debe establecer en el elemento <code>&lt;body&gt;</code> de la página y el resto de elementos la heredarán de forma automática.</p>
+  
